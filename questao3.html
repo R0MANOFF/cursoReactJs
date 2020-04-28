@@ -1,20 +1,26 @@
 <script>
-    const alunos = [{
-        nome: "tutu",
-        nota: [8, 9, 9]
-    }, {
-        nome: "nath",
-        nota: [10, 7, 4]
-    }, {
-        nome: "dan",
-        nota: [8, 8, 8]
-    }]
 
-    function ordenaAlunos(alunos) {
-        for (i = 0; i < alunos.nota.length; i++) {
-            var soma = soma + aluno.nota[i];
-        }
-        return soma
+const Alunos = [
+    {nome: "Arthur", notas: [5, 10, 7]},
+    {nome: "Pedro", notas:[7, 9, 9]},
+    {nome: "Nathasha", notas:[4, 10, 8]} 
+    ]
+
+ function ordenaAlunos(Alunos){
+        const melhorAluno = (a, b) => a + b;
+
+        Alunos.sort((a, b) => {
+            if(a.notas.reduce(melhorAluno) > b.notas.reduce(melhorAluno)){
+                return -1;
+            }
+            else{
+                return 1;
+            }
+        })
+        return Alunos;
+
     }
-    console.log()
+
+    console.log(ordenaAlunos(Alunos));
+
 </script>
