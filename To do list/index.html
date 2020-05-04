@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="content">
@@ -11,7 +12,7 @@
         <div class="row">
 
             <div class="col">
-                <h2>To do list</h2>
+                <h2 id="tittle">To do list</h2>
                 <form>
                     <input type="text" name="task" id="task" placeholder="Novo item...">
                     <input type="button" value="Add" onclick="addItem()" >
@@ -35,15 +36,15 @@
         </div>
     </div>
 
-    <script>
+    <script type= "text/javascript">
         var ul = document.getElementById("mylist");
         var li;
         var itemId;
         var item;
 
         addItem = function(){
-             if(document.getElementById("task") != ""){
-                item = document.getElementById("task").value;
+             if(document.getElementById("task").value != ""){
+                item = document.getElementById("task");
                 itemId = ul.childElementCount;
                 li = createItem(item.value, itemId);
                 li.appendChild(buttonRemove(itemId));
