@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+</head>
+<body>
+    <div class="content">
+
+        <div class="row">
+
+            <div class="col">
+                <h2>To do list</h2>
+                <form>
+                    <input type="text" name="task" id="task" placeholder="Novo item...">
+                    <input type="button" value="Add" onclick="addItem()" >
+                </form>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+
+                <div class="todolistbox">
+                    <ul id="mylist">
+                        
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        var ul = document.getElementById("mylist");
+        var li;
+        var itemId;
+        var item;
+
+        addItem = function(){
+             if(document.getElementById("task") != ""){
+                item = document.getElementById("task").value;
+                itemId = ul.childElementCount;
+                li = createItem(item.value, itemId);
+                li.appendChild(buttonRemove(itemId));
+                ul.appendChild(li);
+             }
+
+        }
+
+        remove = function(itemId){
+            for(i=0; i<ul.children.length; i++){
+                if(ul.children[i].getAttribute("index") == itemId){
+                    ul.children[i].remove();
+                }
+            }
+
+        }
+
+        createItem = function(itemValue, itemId){
+            let li = document.createElement("li");
+            li.setAttribute("index", itemId);
+            li.appendChild(document.createTextNode(itemValue));
+            return li;
+          
+
+        }
+
+        buttonRemove = function(itemId){
+            let btn = document.createElement("button");
+            btn.setAttribute("onclick", "remove("+itemId+")");
+            btn.innerHTML = "X";
+            return btn;
+        } 
+
+        
+    </script>
+
+
+    
+</body>
+</html>
